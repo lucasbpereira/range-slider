@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="range-picker-content">
+        <div class="header-range-picker">
+            <h2>Plantas</h2>
+        </div>
+        <ul class="range-picker-slider">
+            
+           
+            <input type="range" id="range-picker" min="0" max="4" value="2" onChange="getRangePickerValue()">
+        </ul>
+
+        <div class="slider-content">
+
+        </div>
+
+        <div class="informacoes">
+            <h4>Legenda</h4>
+        </div>
+    </section>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        const menu = document.querySelector(".range-picker-slider")
+        const sliderContent = document.querySelector(".slider-content")
+        const dataScale = 1.6;
+        let max = 0
+        const rangePicker = document.getElementById("range-picker");
+
+        const rangePickerImage = document.querySelectorAll("range-slider-picker");
+                
+        async function popular() {
+            const requestURL = "./plants.json";
+            const request = new Request(requestURL);
+
+            const response = await fetch(request);
+            const listaDadosJSON = await response.text();
+
+            const listaDados = JSON.parse(listaDadosJSON);
+            popularImagensLegendas(listaDados);
+            
+        }
+
+        async function popularImagensLegendas(obj) {
+            let listaParticipantes = obj.map(popularDados)
+            await popularDados(listaParticipantes)
+        }
+
+        async function popularDados(obj, i) {   
+           
+            await createMenu(obj, i)
+            await createSlider(obj, i)
+            await createInformacoes(obj, i)
+        }
+
+        function createMenu(obj, i) {
+            if(obj["MenuTitulo"] !== undefined) {
+                const li = document.createElement("li")
+                menu.append(li)
+                const button = document.createElement("button")
+                li.append(button)
+                button.classList.add("range-picker-item", i)
+                button.setAttribute("type", "button")
+                button.setAttribute("onclick", "setRangePickerValue("+i+"), getRangePickerValue()")
+                const menuTitulo = document.createTextNode(obj["MenuTitulo"])
+                button.append(menuTitulo)
+
+                i === 2 ? button.classList.add("active") : button.classList.remove("active")
+            }
+        }
+
+        function createSlider(obj, i) {
+            if(obj["MenuTitulo"] !== undefined) {
+                let imageIndex = 0
+
+                const div = document.createElement("div")
+                div.classList.add("slider", i)
+
+                i === 2 ? div.classList.add("active") : div.classList.remove("active")
+                
+                sliderContent.append(div)
+                const sliderTitulo = document.createElement("h4")
+                div.append(sliderTitulo)
+                const sliderText = document.createTextNode(obj["Titulo"])
+                sliderTitulo.append(sliderText)
+
+                const divActiveImage = document.createElement("div")
+                divActiveImage.classList.add("active-image")
+                div.append(divActiveImage)
+                const mainImage = document.createElement("div")
+                mainImage.classList.add("product-img--main", i)
+                mainImage.setAttribute("data-scale", dataScale)
+                mainImage.setAttribute("data-image", obj.Imagens[0])
+                divActiveImage.append(mainImage)
+                populaActiveSlider()
+
+                const ul = document.createElement("ul")
+                ul.classList.add("list-image")
+                div.append(ul)
+                
+                for(img of obj.Imagens){
+                    const li = document.createElement("li")
+                    ul.append(li)
+                    const button = document.createElement("button")
+                    button.setAttribute("type", "button")
+                    
+                    button.setAttribute("class", "range-slider-picker")
+                    button.classList.add("image"+i)
+                    
+                    li.append(button)
+                    const imageButton = document.createElement("img")
+                    imageButton.setAttribute("src", img)
+                    
+                    button.append(imageButton)
+                }
+                const rangeImage = document.createElement("input");
+                rangeImage.setAttribute("type", "range");
+                rangeImage.setAttribute("class", "range-image-picker")
+                rangeImage.setAttribute("id", "range"+i)
+                rangeImage.setAttribute("min", 0);
+                rangeImage.setAttribute("value", 0)
+                rangeImage.setAttribute("onChange", "getRangeImagePickerValue("+i+")")
+                div.append(rangeImage)
+
+
+                const sliderButton = document.querySelectorAll(".range-slider-picker")
+
+                for (btn of sliderButton) {
+                    if (btn.classList.contains("image"+i)) {
+                        btn.setAttribute("id", "button"+i+imageIndex++)
+                        
+                        for(img of btn.children) {
+                            img.setAttribute("id", imageIndex - 1)
+                        }
+                        btn.getAttribute("id") == "button"+i+0 ? btn.classList.add("active") : btn.classList.remove("active")
+                        btn.setAttribute("onClick", "setImage("+i+", "+imageIndex+"), getImage("+i+")")
+                    }
+                    rangeImage.setAttribute("max", imageIndex - 1)
+                    rangeImage.setAttribute("onChange", "getRangeImagePickerValue("+i+")")
+                }
+
+
+            }
+        }
+
+        function createInformacoes(obj, i) {
+            const div = document.querySelector(".informacoes");
+            const ol = document.createElement("ol");
+            ol.setAttribute("class", "list-info "+i)
+            if(obj["MenuTitulo"] !== undefined) {
+                obj.Legenda.map((item => {
+                    div.append(ol)
+                    const li = document.createElement("li");
+                    i === 2 ? ol.classList.add("active") : ol.classList.remove("active")
+                    ol.append(li)
+                    const p = document.createElement("p")
+                    li.append(p)
+                    const informacoesText = document.createTextNode(item)
+                    p.append(informacoesText)
+                }))
+            }
+
+            console.log(obj)
+        }
+        popular()
+
+        function getRangePickerValue() {
+            const rangePickerItem = document.querySelectorAll(".range-picker-item");
+            for(item of rangePickerItem) {
+                !item.classList.contains(rangePicker.value) 
+                    ? item.classList.remove("active") 
+                    : item.classList.add("active");
+                
+            }
+            const slider = document.querySelectorAll(".slider");
+            for(slide of slider) {
+                !slide.classList.contains(rangePicker.value) 
+                    ? slide.classList.remove("active") 
+                    : slide.classList.add("active");
+            }
+
+            const informacoes = document.querySelectorAll(".list-info");
+            for(info of informacoes) {
+                console.log(info)
+                !info.classList.contains(rangePicker.value) 
+                    ? info.classList.remove("active") 
+                    : info.classList.add("active");
+            }
+        }
+
+        function setRangePickerValue(itemValue) {
+            rangePicker.value = itemValue;
+        }
+
+        function getImage(number) {
+            const rangeSliderPicker = document.querySelectorAll(".range-slider-picker");
+            for(item of rangeSliderPicker) {
+                let rsp = event.target.getAttribute("id");                
+               
+                if (item.classList.contains("image"+number) && item.getAttribute("id") == "button"+number+rsp){
+                    item.classList.add("active")
+                    document.getElementById("range"+number).value = rsp
+                } else {
+                    item.classList.remove("active")
+                }
+            }
+            
+            const zoomImage = document.querySelectorAll(".product-img--main");
+            for(img of zoomImage) {
+                if (img.classList.contains(number)){
+                    const imageClicked = event.target.getAttribute("src");
+                    img.setAttribute("data-image", imageClicked)
+                    img.children[0].setAttribute("style", "background-image: url("+imageClicked+");")
+                } 
+            }
+            populaActiveSlider()
+        }
+
+        function setImage(ranger, itemValue) {
+            const rangeSlider = document.getElementById("range"+ranger)
+            rangeSlider.value = itemValue
+        }
+
+        function getRangeImagePickerValue(number) {
+            
+            const zoomImage = document.querySelectorAll(".product-img--main");
+            for(img of zoomImage) {
+                img.removeAttribute("data-image")
+                if (img.classList.contains(number)){
+                    
+                    const rangeValue = document.getElementById("button"+number+event.target.value)
+                    let srcClicked = "";
+                    for(range of rangeValue.children) {
+                        srcClicked = range.getAttribute("src")
+                    }
+                    
+                    img.setAttribute("data-image", srcClicked)
+                    img.children[0].setAttribute("style", "background-image: url("+srcClicked+");")
+                } 
+            }
+            populaActiveSlider()
+        }
+
+        function populaActiveSlider() {
+            let productImgMain = document.querySelector('.product-img--main');
+            console.log(productImgMain)
+                if (productImgMain.innerHTML != " ") {
+                    document.querySelector('.product-img--main__image')
+                }
+                
+                $('.product-img--main')
+                // tile mouse actions
+                .on('mouseover', function(){
+                $(this).children('.product-img--main__image').css({'transform': 'scale('+ $(this).attr('data-scale') +')'});
+                })
+                .on('mouseout', function(){
+                $(this).children('.product-img--main__image').css({'transform': 'scale(1)'});
+                })
+                .on('mousemove', function(e){
+                $(this).children('.product-img--main__image').css({'transform-origin': ((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 +'%'});
+                })
+                // tiles set up
+                .each(function(){
+                $(this)
+                    // add a image container
+                    .append('<div class="product-img--main__image"></div>')
+                    // set up a background image for each tile based on data-image attribute
+                    .children('.product-img--main__image').css({'background-image': 'url('+ $(this).attr('data-image') +')'});
+                });
+            
+        }
+
+        
+    </script>
+</body>
+</html>

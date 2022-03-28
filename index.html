@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="range-picker-content">
+        <ul class="range-picker-slider">
+            <li><button type="button" class="range-picker-item 1" onClick="setRangePickerValue(1), getRangePickerValue()">3 dorms</button></li>
+            <li><button type="button" class="range-picker-item 2" onClick="setRangePickerValue(2), getRangePickerValue()">2 dorms</button></li>
+            <li><button type="button" class="range-picker-item 3 active" onClick="setRangePickerValue(3), getRangePickerValue()">1 dorms</button></li>
+            <li><button type="button" class="range-picker-item 4" onClick="setRangePickerValue(4), getRangePickerValue()">Studio</button></li>
+            <li><button type="button" class="range-picker-item 5" onClick="setRangePickerValue(5), getRangePickerValue()">4 dorms</button></li>
+            <input type="range" id="range-picker" min="1" max="5" value="3" onChange="getRangePickerValue()">
+        </ul>
+
+        <div class="slider-content">
+            <div class="slider 1">
+                <h4>3 Dormitório de 23m²</h4>
+                <div class="active-image">
+                    <div class="product-img--main 1" data-scale="1.6"></div>
+                </div>
+                <ul class="list-image">
+                    <li><button type="button" onclick="getImage(1)"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png" alt="Imagem Slider 1"></button></li>
+                    <li><button type="button" onclick="getImage(1)"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/008.png" alt="Imagem Slider 2"></button></li>
+                    <li><button type="button" onclick="getImage(1)"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/009.png" alt="Imagem Slider 3"></button></li>
+                </ul>
+                <input type="range" id="range-image-picker" min="1" max="3" value="1" onclick="getRangeImagePickerValue()" >
+            </div>
+
+            <div class="slider 2">
+                <h4>2 Dormitório de 23m²</h4>
+                <div class="active-image">
+                    <div class="product-img--main 2" data-scale="1.6" data-image="./slider1.PNG"></div>
+                </div>
+                <ul class="list-image">
+                    <li><button type="button" onclick="getImage(2)"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png" alt="Imagem Slider 1"></button></li>
+                    <li><button type="button" onclick="getImage(2)"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/005.png" alt="Imagem Slider 2"></button></li>
+                    <li><button type="button" onclick="getImage(2)"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png" alt="Imagem Slider 3"></button></li>
+                </ul>
+            </div>
+
+            <div class="slider 3 active">
+                <h4>1 Dormitório de 23m²</h4>
+                <div class="active-image">
+                    <div class="product-img--main 3" data-scale="1.6" data-image="./slider1.PNG"></div>
+                </div>
+                <ul class="list-image">
+                    <li><button type="button" onclick="getImage(3)"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png" alt="Imagem Slider 1"></button></li>
+                    <li><button type="button" onclick="getImage(3)"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/002.png" alt="Imagem Slider 2"></button></li>
+                    <li><button type="button" onclick="getImage(3)"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/003.png" alt="Imagem Slider 3"></button></li>
+                </ul>
+                <input type="range" min="1" max="3" value="1" class="range-image-picker" onclick="getRangeImagePickerValue()">
+            </div>
+
+            <div class="slider 4">
+                <h4>Studio</h4>
+                <div class="active-image">
+                    <div class="product-img--main 4" data-scale="1.6" data-image="./slider1.PNG"></div>
+                </div>
+                <ul class="list-image">
+                    <li><button type="button" onclick="getImage(4)"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/010.png" alt="Imagem Slider 1"></button></li>
+                    <li><button type="button" onclick="getImage(4)"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/011.png" alt="Imagem Slider 2"></button></li>
+                    <li><button type="button" onclick="getImage(4)"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/012.png" alt="Imagem Slider 3"></button></li>
+                </ul>
+            </div>
+
+            <div class="slider 5">
+                <h4>4 Dormitório de 23m²</h4>
+                <div class="active-image">
+                    <div class="product-img--main 5" data-scale="1.6" data-image="./slider1.PNG"></div>
+                </div>
+                <ul class="list-image">
+                    <li><button type="button" onclick="getImage(5)"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/013.png" alt="Imagem Slider 1"></button></li>
+                    <li><button type="button" onclick="getImage(5)"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/014.png" alt="Imagem Slider 2"></button></li>
+                    <li><button type="button" onclick="getImage(5)"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/015.png" alt="Imagem Slider 3"></button></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        const rangePicker = document.getElementById("range-picker");
+        const rangePickerItem = document.querySelectorAll(".range-picker-item");
+        const zoomImage = document.querySelectorAll(".product-img--main");
+        const sliderContent = document.querySelectorAll(".slider");
+        const rangePickerImage = document.getElementById("range-image-picker");
+
+        function getRangePickerValue() {
+            for(item of rangePickerItem) {
+                !item.classList.contains(rangePicker.value) 
+                    ? item.classList.remove("active") 
+                    : item.classList.add("active");
+                
+            }
+
+            for(slider of sliderContent) {
+                !slider.classList.contains(rangePicker.value) 
+                    ? slider.classList.remove("active") 
+                    : slider.classList.add("active");
+            }
+        }
+
+        function setRangePickerValue(itemValue) {
+            rangePicker.value = itemValue;
+        }
+
+        function getImage(number) {
+            
+            for(img of zoomImage) {
+                img.removeAttribute("data-image")
+
+                if (img.classList.contains(number)){
+                    const imageClicked = event.target.getAttribute("src");
+                    img.setAttribute("data-image", imageClicked)
+                    img.children[0].setAttribute("style", "background-image: url("+imageClicked+");")
+                }
+            }
+        }
+
+        function getRangeImagePickerValue() {
+            for(item of rangePickerItem) {
+                !item.classList.contains(rangePicker.value) 
+                    ? item.classList.remove("active") 
+                    : item.classList.add("active");
+                
+            }
+
+            for(slider of sliderContent) {
+                !slider.classList.contains(rangePicker.value) 
+                    ? slider.classList.remove("active") 
+                    : slider.classList.add("active");
+            }
+        }
+
+    </script>
+
+    <script>
+        $('.product-img--main')
+        // tile mouse actions
+        .on('mouseover', function(){
+          $(this).children('.product-img--main__image').css({'transform': 'scale('+ $(this).attr('data-scale') +')'});
+        })
+        .on('mouseout', function(){
+          $(this).children('.product-img--main__image').css({'transform': 'scale(1)'});
+        })
+        .on('mousemove', function(e){
+          $(this).children('.product-img--main__image').css({'transform-origin': ((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 +'%'});
+        })
+        // tiles set up
+        .each(function(){
+          $(this)
+            // add a image container
+            .append('<div class="product-img--main__image"></div>')
+            // set up a background image for each tile based on data-image attribute
+            .children('.product-img--main__image').css({'background-image': 'url('+ $(this).attr('data-image') +')'});
+        });
+        </script>
+</body>
+</html>

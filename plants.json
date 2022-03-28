@@ -1,0 +1,117 @@
+[{
+    "Titulo": "1 dormitório de 23M²",
+    "MenuTitulo": "1 dorms",
+    "Imagens": [
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/002.png",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/003.png",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png"
+    ],
+    "Legenda": [
+        "PORTA COM PERSIANA DE ENROLAR",
+        "CARGA ELÉTRICA E DRENO PARA AR-CONDICIONADO",
+        "BANHEIRO COM VENTILAÇÃO E ILUMINAÇÃO NATURAL",
+        "AGUA QUENTE NA PIA",
+        "AMPLA PORTA DE 3 FOLHAS",
+        "TERRAÇO TÉCNICO",
+        "KIT GOURMET",
+        "ÁREA DE SERVIÇO ISOLADA",
+        "LIVING, COZINHA E TERRAÇO INTEGRADOS",
+        "ENTRADA DE SERVIÇO",
+        "PREVISÃO PARA MÁQUINA DE LAVAR LOUÇAS",
+        "HALL PRIVATIVO"        
+    ]
+},
+{
+    "Titulo": "2 dormitório de 23M²",
+    "MenuTitulo": "2 dorms",
+    "Imagens": [
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/005.png",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/008.png"   
+    ],
+    "Legenda": [
+        "PORTA COM PERSIANA DE ENROLAR",
+        "CARGA ELÉTRICA E DRENO PARA AR-CONDICIONADO",
+        "BANHEIRO COM VENTILAÇÃO E ILUMINAÇÃO NATURAL",
+        "AGUA QUENTE NA PIA",
+        "AMPLA PORTA DE 3 FOLHAS",
+        "TERRAÇO TÉCNICO"     
+    ]
+},
+{
+    "Titulo": "3 dormitório de 23M²",
+    "MenuTitulo": "3 dorms",
+    "Imagens": [
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/009.png",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/010.png",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/011.png",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/012.png"   
+    ],
+    "Legenda": [
+        "PORTA COM PERSIANA DE ENROLAR",
+        "CARGA ELÉTRICA E DRENO PARA AR-CONDICIONADO",
+        "BANHEIRO COM VENTILAÇÃO E ILUMINAÇÃO NATURAL",
+        "AGUA QUENTE NA PIA",
+        "AMPLA PORTA DE 3 FOLHAS",
+        "TERRAÇO TÉCNICO",
+        "KIT GOURMET",
+        "ÁREA DE SERVIÇO ISOLADA",
+        "LIVING, COZINHA E TERRAÇO INTEGRADOS",
+        "ENTRADA DE SERVIÇO",
+        "PREVISÃO PARA MÁQUINA DE LAVAR LOUÇAS",
+        "HALL PRIVATIVO"        
+    ]
+},
+{
+    "Titulo": "4 dormitório de 23M²",
+    "MenuTitulo": "4 dorms",
+    "Imagens": [
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/013.png",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/014.png",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/015.png",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/016.png"   
+    ],
+    "Legenda": [
+        "PORTA COM PERSIANA DE ENROLAR",
+        "CARGA ELÉTRICA E DRENO PARA AR-CONDICIONADO",
+        "BANHEIRO COM VENTILAÇÃO E ILUMINAÇÃO NATURAL",
+        "AGUA QUENTE NA PIA",
+        "AMPLA PORTA DE 3 FOLHAS",
+        "TERRAÇO TÉCNICO",
+        "KIT GOURMET",
+        "ÁREA DE SERVIÇO ISOLADA",
+        "LIVING, COZINHA E TERRAÇO INTEGRADOS",
+        "ENTRADA DE SERVIÇO",
+        "PREVISÃO PARA MÁQUINA DE LAVAR LOUÇAS",
+        "HALL PRIVATIVO"        
+    ]
+},
+{
+    "Titulo": "Studio",
+    "MenuTitulo": "Studio",
+    "Imagens": [
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/017.png",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/018.png",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/019.png",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/020.png",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/021.png",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/022.png"
+    ],
+    "Legenda": [
+        "LOREM IPSUM",
+        "CARGA ELÉTRICA E DRENO PARA AR-CONDICIONADO",
+        "BANHEIRO COM VENTILAÇÃO E ILUMINAÇÃO NATURAL",
+        "AGUA QUENTE NA PIA",
+        "AMPLA PORTA DE 3 FOLHAS",
+        "TERRAÇO TÉCNICO",
+        "KIT GOURMET",
+        "ÁREA DE SERVIÇO ISOLADA",
+        "LIVING, COZINHA E TERRAÇO INTEGRADOS",
+        "ENTRADA DE SERVIÇO",
+        "PREVISÃO PARA MÁQUINA DE LAVAR LOUÇAS",
+        "HALL PRIVATIVO"        
+    ]
+}]
+
